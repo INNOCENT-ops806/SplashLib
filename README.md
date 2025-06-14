@@ -109,6 +109,10 @@ Every great game needs a welcoming introduction. Splashlib provides a straightfo
     }
     ```
 
+## Example:
+
+![Customizable_Window](Images/Grass_Game_Window.png)
+
 ## Contributing
 
 If you have ideas for improving Splashlib, feel free to open issues or submit pull requests on GitHub.

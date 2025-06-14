@@ -1,5 +1,5 @@
 
-#include <Splash.h>
+#include "../include/Splash.h"
 #include <raylib.h>
 
 Splash::Splash() {
