@@ -3,7 +3,7 @@
 #include <raylib.h>
 
 Splash::Splash() {
-  scarfy = LoadTexture("scarfy.png");
+  scarfy = LoadTexture("../assets/scarfy.png");
   int w = GetScreenWidth();
   int h = GetScreenHeight();
   int PADDING = w / 10;
