@@ -1,7 +1,5 @@
 # Splashlib - "Grass Games" Welcome Screen
 
-_(You'll want to replace this with your actual logo, if you have one\!)_
-
 A simple, easy-to-integrate C++ library for creating a customizable welcome/splash screen for your games. Designed with Raylib in mind, Splashlib aims to give your games a polished entry point, while subtly promoting a healthy message: "Get outside, touch grass\!"
 
 ## Why Splashlib?
