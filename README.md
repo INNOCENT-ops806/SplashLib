@@ -24,96 +24,105 @@ Every great game needs a welcoming introduction. Splashlib provides a straightfo
 
 ### Installation
 
-1.  **Clone the Repository:**
+1. **Clone the Repository:**
 
-    ```bash
-    git clone https://github.com/INNOCENT-ops806/Splashlib.git
-    cd Splashlib
-    ```
+   ```bash
+   git clone https://github.com/INNOCENT-ops806/Splashlib.git
+   cd Splashlib
+   ```
 
-2.  **Build the Library:**
+2. **Build the Library:**
 
-    ```bash
-    make
-    ```
+   ```bash
+   make
+   ```
 
-    This will typically compile the library and place `libSplash.a` (the static library) in the `lib/` directory.
+   This will typically compile the library and place `libSplash.a` (the static library) in the `lib/` directory.
 
 ### Integration into Your Project
 
-1.  **Copy the Library:**
-    Copy the `Splashlib` folder (or at least its `include/` and `lib/` subdirectories) into your game project's `lib/` directory.
+1. **Copy the Library:**
+   Copy the `Splashlib` folder (or at least its `include/` and `lib/` subdirectories) into your game project's `lib/` directory.
 
-    Example (from your main game's root):
+   Example (from your main game's root):
 
-    ```bash
-    cp -r /path/to/Splashlib/include lib/Splashlib/
-    cp -r /path/to/Splashlib/lib lib/Splashlib/
-    ```
+   ```bash
+   cp -r /path/to/Splashlib/include lib/Splashlib/
+   cp -r /path/to/Splashlib/lib lib/Splashlib/
+   ```
 
-2.  **Include the Header:**
-    In your `main.cpp` (or wherever you want to display the splash screen), include the main header:
+2. **Include the Header:**
+   In your `main.cpp` (or wherever you want to display the splash screen), include the main header:
 
-    ```cpp
-    #include "lib/Splashlib/include/Splash.h"
-    // Or, if you've configured your Makefile to include -Ilib/Splashlib/include
-    // then you can simply use: #include <Splash.h>
-    ```
+   ```cpp
+   #include "lib/Splashlib/include/Splash.h"
+   // Or, if you've configured your Makefile to include -Ilib/Splashlib/include
+   // then you can simply use: #include <Splash.h>
+   ```
 
-3.  **Update Your Makefile (or Build System):**
-    You need to tell your build system where to find Splashlib's headers and where to link against its static library.
+3. **Update Your Makefile (or Build System):**
+   You need to tell your build system where to find Splashlib's headers and where to link against its static library.
 
-    Add these to your `Makefile` (adjust paths as necessary):
+   Add these to your `Makefile` (adjust paths as necessary):
 
-    ```makefile
-    # In CXXFLAGS (for compiler to find headers):
-    CXXFLAGS += -Ilib/Splashlib/include
+   ```makefile
+   # In CXXFLAGS (for compiler to find headers):
+   CXXFLAGS += -Ilib/Splashlib/include
 
-    # In LDFLAGS (for linker to find the library file and link it):
-    LDFLAGS += -Llib/Splashlib/lib -lSplash
-    ```
+   # In LDFLAGS (for linker to find the library file and link it):
+   LDFLAGS += -Llib/Splashlib/lib -lSplash
+   ```
 
-4.  **Use in Your Code:**
+4. **Use in Your Code:**
 
-    ```cpp
-    #include <raylib.h>
-    #include <Splash.h> // Assuming -I is set up correctly
+   ```cpp
+   #include <raylib.h>
+   #include <Splash.h> // Assuming -I is set up correctly
 
-    int main() {
-        // Initialize Raylib window
-        InitWindow(5,5,GetScreenWidth - 5, GetScreenHeight -5, "My Awesome Game");
-        SetTargetFPS(60);
+   int main() {
+       // Initialize Raylib window
+       InitWindow(5,5,GetScreenWidth - 5, GetScreenHeight -5, "My Awesome Game");
+       SetTargetFPS(60);
 
-        // --- Splashlib Usage ---
-        // Display the splash screen. This function should block until it's done.
-        // You might need to pass window dimensions, or have it handle them internally.
-        // Assuming your Splashlib has a function like this:
-    		Splash::Draw(); //
+       // --- Splashlib Usage ---
+       // Display the splash screen. This function should block until it's done.
+       // You might need to pass window dimensions, or have it handle them internally.
+       // Assuming your Splashlib has a function like this:
+     Splash::Draw(); //
 
-        // If you need to initialize or shutdown Splashlib (like AudioDevice for raylib)
-        //There is a destructor for the entire library
-        // Splashlib::~Splash;
+       // If you need to initialize or shutdown Splashlib (like AudioDevice for raylib)
+       //There is a destructor for the entire library
+       // Splashlib::~Splash;
 
-        // Your main game loop starts here after the splash screen finishes
-        while (!WindowShouldClose()) {
-            BeginDrawing();
-            ClearBackground(RAYWHITE);
-            DrawText("Welcome to the Game!", 100, 200, 30, BLACK);
-            EndDrawing();
-        }
+       // Your main game loop starts here after the splash screen finishes
+       while (!WindowShouldClose()) {
+           BeginDrawing();
+           ClearBackground(RAYWHITE);
+           DrawText("Welcome to the Game!", 100, 200, 30, BLACK);
+           EndDrawing();
+       }
 
-        CloseWindow();
-        return 0;
-    }
-    ```
+       CloseWindow();
+       return 0;
+   }
+   ```
 
-## Example:
+## More info on the example folder
+
+If are still struggling with the examples given above, you can view the example folder where everything has been setup for game development.
+
+> [!NOTE]
+> Check the Makefile to see how to include the library
+
+## Example
 
 ![Customizable_Window](Images/Grass_Game_Window.png)
 
 ## Contributing
 
 If you have ideas for improving Splashlib, feel free to open issues or submit pull requests on GitHub.
+
+`Thank you for using Splashlib ^_^`
 
 ## License
 
